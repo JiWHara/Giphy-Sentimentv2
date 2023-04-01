@@ -22,17 +22,20 @@ const Timeline = () => {
         })
     },[] )
 
-    useEffect(() => {
-        setGifArray(Object.keys(gifData))
-    }, [gifData])
+   useEffect(() => {
+       if(gifData) {
+           setGifArray(Object.values(gifData))
+       }
+   }, [gifData])
 
     return (
         <ul className="timelineList" >
             {gifArray ? 
                 
                 gifArray.map((eachGif) => {
+                    console.log(eachGif.img)
                     return(
-                        <img src={gifData[eachGif]} alt="" /> 
+                        <img key={eachGif.key}  src={eachGif.img} alt={eachGif.alt} /> 
                         )
                     })
                     : null}
