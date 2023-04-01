@@ -1,19 +1,24 @@
 import { useState } from 'react'
 import axios from 'axios'
+import DisplayOptions from './DisplayOptions'
 
 const Form = () => {
-
-    const [searchQuery, setSearchQuery] = useState('bee')
-    const [gif, setGif] = useState()
+    // initialize useState variables as string/array
+    const [searchQuery, setSearchQuery] = useState('')
+    const [gifArray, setGifArray] = useState([]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
         //   Start
-
-
-        axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_API_KEY}&q=${searchQuery}&limit=25&offset=0&rating=pg&lang=en`)
+            // const params = new URLSearchParams();
+            // params.append("limit", 10);
+            // params.append("offset", 0);
+            // params.append("rating", "pg");
+            // params.append("lang", "en");
+        
+        axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_API_KEY}&q=${searchQuery}&limit=10&offset=0&rating=pg&lang=en`)
             .then(response => {
-                setGif(response.data.data[0].images.original.url)
+                setGifArray(response.data.data)
             })
         // End
     }
@@ -24,15 +29,12 @@ const Form = () => {
         <>
             <form onSubmit={handleSubmit}>
                 <label htmlFor=""></label>
-                <input type="text" />
+                <input onChange={(e) => setSearchQuery(e.target.value)} type="text" />
 
                 <button>Api call</button>
             </form>
-            {gif ?
-                <img src={gif} alt="" />
-                :
-                null
-            }
+            <DisplayOptions gifArray={gifArray}/>
+            
         </>
     )
 }

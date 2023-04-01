@@ -3,24 +3,41 @@ import { getDatabase, ref, push } from "firebase/database";
 import axios from 'axios';
 import { useState, useEffect } from "react";
 
-
-const DisplayOptions = () => {
-    
-    const database = getDatabase(firebaseInfo)
-    // reference to db
-    const dbRef = ref(database) 
-
-    const clickHandler = () => {
-        push(dbRef, 'First push!')
-    }
-
+// DisplayOptions function
+const DisplayOptions = ({ gifArray }) => {
 
     return (
-        <section className="displayGiphy">
-            <div className="wrapper">
-                <button onClick={clickHandler}>GHFIUWGF</button>
-            </div>
-        </section>
+        <ul className='gifList'>
+                {gifArray ?
+                    gifArray.map(gif => {
+                        const database = getDatabase(firebaseInfo)
+                        // reference to db
+                        const dbRef = ref(database) 
+                        
+                        const timeElapsed = Date.now();
+                        const currentDay = new Date(timeElapsed)
+
+                        const gifObj = {
+                            img: gif.images.original.url,
+                            alt: gif.title,
+                            key: gif.id,
+                            time: currentDay.toDateString(),
+                            timeNum: timeElapsed
+                        }
+
+                        const clickHandler = () => {
+                            push(dbRef, gifObj)
+                        }
+                        return (
+                            <li key={gif.id} onClick={clickHandler}>
+                                <img src={gif.images.original.url} alt={gif.title} />
+                            </li>
+                        )
+                    })
+                    :
+                    null
+                }
+        </ul>
     )
 
 }
