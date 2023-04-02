@@ -1,6 +1,6 @@
 import firebaseInfo from "../firebase.js";
 import { getDatabase, ref, onValue } from "firebase/database";
-
+import '../App.css';
 import { useEffect, useState } from "react";
 
 const Timeline = () => {
@@ -35,7 +35,10 @@ const Timeline = () => {
                 gifArray.map((eachGif) => {
                     console.log(eachGif.img)
                     return(
-                        <img key={eachGif.key}  src={eachGif.img} alt={eachGif.alt} /> 
+                        <figure className="gifContainer" key={eachGif.key}>
+                            <img   src={eachGif.img} alt={eachGif.alt} /> 
+                        </figure>    
+                            
                         )
                     })
                     : null}

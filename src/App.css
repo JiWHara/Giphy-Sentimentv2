@@ -24,6 +24,13 @@ li {
     text-align: center;
 }
 
+img {
+    width: 100%;
+    height: inherit;
+    display: block;
+
+}
+
 /* Gradient BLUE TO PINK */
 
 body {
@@ -41,3 +48,13 @@ button {
     border-radius: 5px;
     background-image: linear-gradient(to left top, #ff7600, #ff6332, #ff534e, #f54965, #e54678, #d34886, #be4c91, #a75197, #8c5599, #705796, #58578e, #435582);
 }
+
+/* Gif container */
+
+.gifContainer {
+    height: auto;
+    width: 300px;
+    overflow: hidden;
+    clip-path: polygon(0 25%, 100% 25%, 100% 75%, 0 75%);
+}
+
