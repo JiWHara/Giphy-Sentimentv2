@@ -1,6 +1,7 @@
 import firebaseInfo from "../firebase.js";
-import { getDatabase, ref, onValue, remove } from "firebase/database";
 
+import { getDatabase, ref, onValue, remove } from "firebase/database";
+import '../App.css';
 import { useEffect, useState } from "react";
 
 const Timeline = () => {
@@ -48,12 +49,15 @@ const deleteClickHandler = (gifKey) => {
                 
                 gifData.map((eachGif) => {
                     return(
+
                         <li key={eachGif.key}>
-                            <img src={eachGif.gifValues.img} alt={eachGif.gifValues.alt} /> 
+                            <figure className="gifContainer">
+                              <img src={eachGif.gifValues.img} alt={eachGif.gifValues.alt} /> 
+                            </figure>
                             {/* 8. made onclick event listener and here insert the clickhandler in an asynch function with it's param set as: eachGif.key ***This is how we target the key of specific firebase db obj! */}
                             <button onClick={() => {deleteClickHandler(eachGif.key)}}>❌</button>
                         </li>
-                        
+
                         )
                     })
                     : null}
