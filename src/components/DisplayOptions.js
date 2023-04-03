@@ -29,7 +29,7 @@ const DisplayOptions = ({ gifArray }) => {
                             push(dbRef, gifObj)
                         }
                         return (
-                            <li key={gif.id} onClick={clickHandler}>
+                            <li className="gifContainer" key={gif.id} onClick={clickHandler}>
                                 <img src={gif.images.original.url} alt={gif.title} />
                             </li>
                         )

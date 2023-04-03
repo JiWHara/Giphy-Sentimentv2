@@ -52,9 +52,12 @@ button {
 /* Gif container */
 
 .gifContainer {
-    height: auto;
+    max-height: 300px;
     width: 300px;
-    overflow: hidden;
-    clip-path: polygon(0 25%, 100% 25%, 100% 75%, 0 75%);
+    overflow: clip;
+    overflow-clip-margin: content-box;
+    border: 1px solid black;
+    border-radius: 3%;
+    box-shadow: 10px 10px 18px 1px rgba(0,0,0,0.31);
 }
 
