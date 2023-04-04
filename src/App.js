@@ -9,8 +9,6 @@ import { Link, Routes, Route } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <Header />
-  
       <Routes >
         <Route path ='/' element ={<Form />} />
         <Route path='/timeline' element={<Timeline />} />
