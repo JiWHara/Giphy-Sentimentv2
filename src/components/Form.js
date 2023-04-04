@@ -8,6 +8,7 @@ const Form = () => {
     const [searchQuery, setSearchQuery] = useState('')
     const [gifArray, setGifArray] = useState([]);
     const [apiError, setApiError] = useState(false);
+    const [ apiNoResultError, setApiNoResultError ] = useState(false)
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -15,6 +16,13 @@ const Form = () => {
         
         axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_API_KEY}&q=${searchQuery}&limit=10&offset=0&rating=pg&lang=en`)
             .then((response) => {
+
+                if(response.data.data.length === 0){
+                    setApiNoResultError(true)
+                }else{
+                    setApiNoResultError(false)
+                }
+
                 // set apiError as false
                 setApiError(false)
                 // setGifArray to results from search
@@ -45,7 +53,7 @@ const Form = () => {
           {/* 1d) display error message to user */}
           {apiError === true ? <h2>Sorry, the call to the Giphy API was unsuccessful, please try again!</h2> : null}
 
-          {gifArray.length === 0 ? <h2>Your search yielded no results! Please try again!</h2> : null }
+          {apiNoResultError === true ? <h2>Your search yielded no results! Please try again!</h2> : null }
 
           <DisplayOptions gifArray={gifArray}/>
           
