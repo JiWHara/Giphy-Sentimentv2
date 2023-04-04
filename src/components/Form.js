@@ -31,14 +31,6 @@ const Form = () => {
             })
         // Axios End
     }
-
-    axios
-      .get(
-        `https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_API_KEY}&q=${searchQuery}&limit=10&offset=0&rating=pg&lang=en`
-      )
-      .then((response) => {
-        setGifArray(response.data.data);
-      });
     // End
     return (
       <>
