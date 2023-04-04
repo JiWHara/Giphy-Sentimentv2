@@ -60,7 +60,7 @@ const DisplayOptions = ({ gifArray }) => {
                                     </div>
                                         
                                 </div>
-                                <div id="wbwOverlay" className={`${ showModal === gif.id ? `overlay` : `hidden` }`}></div>
+                                <div onClick={() => setShowModal('')} className={`${ showModal === gif.id ? `overlay` : `hidden` }`}></div>
                             </div>
                         )
                     })
