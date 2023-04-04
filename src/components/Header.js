@@ -1,10 +1,18 @@
+import { Link } from "react-router-dom";
 const Header = () => {
-    return (
+  return (
+    <>
+      <header>
         <section className="header">
-            <h1>Giphy Sentiment</h1>
-            <h3>Express Yourself with Gifs: The Ultimate Emotion Timeline</h3>
+          <h1>Giphy Sentiment</h1>
+          <h3>Express Yourself with Gifs: The Ultimate Emotion Timeline</h3>
+          <Link to="/timeline">
+            <button type="button" className="headerButton">Timeline</button>
+          </Link>
         </section>
-    )
-}
+      </header>
+    </>
+  );
+};
 
 export default Header;
