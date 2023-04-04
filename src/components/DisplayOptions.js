@@ -52,7 +52,7 @@ const DisplayOptions = ({ gifArray }) => {
                                     </div>
                                     <button onClick={() => handlePush(gifObj)}>push</button>
                                 </div>
-                                <div id="wbwOverlay" class={`${ showModal === gif.title ? `overlay` : `hidden` }`}></div>
+                                <div className={`${ showModal === gif.title ? `overlay` : `hidden` }`}></div>
                             </div>
                         )
                     })

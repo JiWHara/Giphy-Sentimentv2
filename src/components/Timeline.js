@@ -35,8 +35,8 @@ const Timeline = () => {
         })
     },[] )
 
-// (6) deleteClickHandler Func
-const deleteClickHandler = (gifKey) => {
+    // (6) deleteClickHandler Func
+        const deleteClickHandler = (gifKey) => {
     //(7) reference to key in firebase db
         const deleteGifRef = ref(database, `${gifKey}`)
         // 7.A) remove the gifObj in our firebase DB using the KEY
