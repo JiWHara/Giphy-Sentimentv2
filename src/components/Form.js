@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import DisplayOptions from "./DisplayOptions";
+import Header from "./Header.js";
 
 const Form = () => {
     // initialize useState variables as string/array
@@ -33,6 +34,7 @@ const Form = () => {
     }
     return (
       <>
+        <Header />
           <form onSubmit={handleSubmit}>
               <label htmlFor="" className='sr-only'>Enter your emotion:</label>
               <input onChange={(e) => setSearchQuery(e.target.value)} value={searchQuery} type="text" />
