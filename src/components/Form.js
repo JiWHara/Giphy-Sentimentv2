@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import DisplayOptions from "./DisplayOptions";
-import Header from "./Header.js";
 
 const Form = () => {
     // initialize useState variables as string/array
@@ -41,34 +40,23 @@ const Form = () => {
         setGifArray(response.data.data);
       });
     // End
-  };
-
-  return (
-    <>
-      <Header />
-      <form onSubmit={handleSubmit}>
-        <label htmlFor=""></label>
-        <input onChange={(e) => setSearchQuery(e.target.value)} type="text" />
-
-
     return (
-        <>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="" className='sr-only'>Enter your emotion:</label>
-                <input onChange={(e) => setSearchQuery(e.target.value)} value={searchQuery} type="text" />
+      <>
+          <form onSubmit={handleSubmit}>
+              <label htmlFor="" className='sr-only'>Enter your emotion:</label>
+              <input onChange={(e) => setSearchQuery(e.target.value)} value={searchQuery} type="text" />
 
-                <button>Api call</button>
-            </form>
+              <button>Api call</button>
+          </form>
 
-            {/* 1d) display error message to user */}
-            {apiError === true ? <h2>Sorry, the call to the Giphy API was unsuccessful, please try again!</h2> : null}
+          {/* 1d) display error message to user */}
+          {apiError === true ? <h2>Sorry, the call to the Giphy API was unsuccessful, please try again!</h2> : null}
 
-            {gifArray.length === 0 ? <h2>Your search yielded no results! Please try again!</h2> : null }
+          {gifArray.length === 0 ? <h2>Your search yielded no results! Please try again!</h2> : null }
 
-            <DisplayOptions gifArray={gifArray}/>
-            
-        </>
-    )
-}
-
+          <DisplayOptions gifArray={gifArray}/>
+          
+      </>
+  )
+};
 export default Form;
