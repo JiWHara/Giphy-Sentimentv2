@@ -2,9 +2,12 @@ import firebaseInfo from "../firebase.js";
 import { getDatabase, ref, push } from "firebase/database";
 import axios from 'axios';
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 // DisplayOptions function
 const DisplayOptions = ({ gifArray }) => {
+
+    const navigate = useNavigate()
 
     const [showModal, setShowModal] = useState('')
     const database = getDatabase(firebaseInfo)
@@ -13,8 +16,10 @@ const DisplayOptions = ({ gifArray }) => {
     
     
 
-    const clickHandler = (dbRef, gifObj) => {
-        push(dbRef, gifObj)
+    const handlePush = (gifObj) => {
+        push(dbRef, gifObj);
+        setShowModal('');
+        navigate('/timeline')
     }
 
     return (
@@ -45,6 +50,7 @@ const DisplayOptions = ({ gifArray }) => {
 
                                         <p>Our platform includes a user authentication system that enables each user to keep track of their own list of movies. This feature    ensures that every user's preferences are catered to, allowing them to tailor their movie tracking experience to their needs.</p>
                                     </div>
+                                    <button onClick={() => handlePush(gifObj)}>push</button>
                                 </div>
                                 <div id="wbwOverlay" class={`${ showModal === gif.title ? `overlay` : `hidden` }`}></div>
                             </div>
