@@ -5,7 +5,8 @@ import Header from "./Header.js";
 
 const Form = () => {
     // initialize useState variables as string/array
-    const [searchQuery, setSearchQuery] = useState('')
+    const [searchQuery, setSearchQuery] = useState('');
+    const [emotion, setEmotion] = useState('')
     const [gifArray, setGifArray] = useState([]);
     const [apiError, setApiError] = useState(false);
     const [ apiNoResultError, setApiNoResultError ] = useState(false);
@@ -28,6 +29,7 @@ const Form = () => {
                 setApiError(false)
                 // setGifArray to results from search
                 setGifArray(response.data.data)
+                setEmotion(searchQuery);
                 // reset user input 
                 setSearchQuery('')
             })
@@ -77,7 +79,7 @@ const Form = () => {
 
           {apiNoResultError === true ? <h2>Your search yielded no results! Please try again!</h2> : null }
 
-          <DisplayOptions gifArray={gifArray}/>
+          <DisplayOptions gifArray={gifArray} emotion={emotion}/>
           
       </>
   )
