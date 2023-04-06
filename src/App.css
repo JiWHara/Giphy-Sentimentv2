@@ -95,10 +95,46 @@ button.timeline {
     background-color: white;
 }
 
+.timelineFlex {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .timelineList {
     display: flex;
     columns: 1;
-    flex-direction: column;
+    flex-direction: column-reverse;
+    width: 850px;
+}
+
+.timelineList li:nth-child(odd) {
+    align-self: flex-start;
+    border-right: 5px solid #6056f9;
+    padding-right: 2.5px;
+}
+
+.timelineList li:nth-child(odd)::after {
+    background-color: #ddd;
+}
+
+
+.timelineList li:nth-child(even) {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: row;
+    border-left: 5px solid #6056f9;
+    padding-left: 2.5px;
+}
+
+.timelineList li:nth-child(even) .xButton {
+    align-self: flex-end;
+}
+
+
+.xButton {
+    height: 40px;
+    width: 40px;
 }
 
 .apiForm {
@@ -185,3 +221,5 @@ html, body, #root {
     display: flex;
     flex-direction: column;
    }
+
+   /* MEDIA QUERIES */
