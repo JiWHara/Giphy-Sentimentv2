@@ -9,7 +9,7 @@ const Timeline = () => {
     //const [hover, setHover] = useState(false)
     const  [gifData, setGifData] = useState([])
     // (1) removed second useState
-    // const  [gifArray, setGifArray] = useState([])
+   
 
     const database = getDatabase(firebaseInfo)
     // reference to db
@@ -54,15 +54,18 @@ const Timeline = () => {
                         {gifData ? 
                             
                             gifData.map((eachGif) => {
-                                return(
                                 
+                               
+                                
+                                return(
+
                                     <li key={eachGif.key}>
                                         <div className="imgTextContainer">
                                             <figure className="gifContainer">
                                                 <img src={eachGif.gifValues.img} alt={eachGif.gifValues.alt} />
                                                 <button className='xButton' onClick={() => {deleteClickHandler(eachGif.key)}}>❌</button>
                                             </figure>
-                                            <div className="emotionText">
+                                            <div className= 'emotionText'>
                                                 <p className="emotion">{eachGif.gifValues.emotion}</p>
                                                 <p className="time">{eachGif.gifValues.time}</p>
                                             </div>
