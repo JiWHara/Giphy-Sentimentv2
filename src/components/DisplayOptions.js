@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // DisplayOptions function
-const DisplayOptions = ({ gifArray }) => {
+const DisplayOptions = ({ gifArray, emotion }) => {
 
     const navigate = useNavigate()
 
@@ -30,6 +30,7 @@ const DisplayOptions = ({ gifArray }) => {
                         const timeElapsed = Date.now();
                         const currentDay = new Date(timeElapsed)
                         const gifObj = {
+                            emotion: emotion,
                             img: gif.images.original.url,
                             alt: gif.title,
                             key: gif.id,
