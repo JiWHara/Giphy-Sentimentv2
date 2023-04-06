@@ -119,28 +119,24 @@ button.timeline {
     position: relative;
 }
 
-.timelineList li:nth-child(odd)::after {
-    background-color: #ddd;
-    position: relative;
-}
-
-
 .timelineList li:nth-child(even) {
     align-self: flex-end;
     display: flex;
     flex-direction: row;
     border-left: 5px solid #6056f9;
     padding-left: 2.5px;
+    position: relative;
 }
 
 .timelineList li:nth-child(even) .emotionText {
     position: absolute;
-    left: 500px
+    left: -100px;
+    top: 0px;
 }
 
 .timelineList li:nth-child(odd) .emotionText {
     position: absolute;
-    top: 0;
+    top: 0px;
     right: -100px;
 }
 
