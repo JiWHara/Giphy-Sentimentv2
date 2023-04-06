@@ -101,6 +101,10 @@ button.timeline {
     flex-direction: column;
 }
 
+.emotionText {
+    
+}
+
 .timelineList {
     display: flex;
     columns: 1;
@@ -112,12 +116,8 @@ button.timeline {
     align-self: flex-start;
     border-right: 5px solid #6056f9;
     padding-right: 2.5px;
+    position: relative;
 }
-
-.timelineList li:nth-child(odd)::after {
-    background-color: #ddd;
-}
-
 
 .timelineList li:nth-child(even) {
     align-self: flex-end;
@@ -125,6 +125,19 @@ button.timeline {
     flex-direction: row;
     border-left: 5px solid #6056f9;
     padding-left: 2.5px;
+    position: relative;
+}
+
+.timelineList li:nth-child(even) .emotionText {
+    position: absolute;
+    left: -100px;
+    top: 0px;
+}
+
+.timelineList li:nth-child(odd) .emotionText {
+    position: absolute;
+    top: 0px;
+    right: -100px;
 }
 
 .timelineList li:nth-child(even) .xButton {

@@ -58,7 +58,7 @@ const Timeline = () => {
                                     <figure className="gifContainer">
                                     <img src={eachGif.gifValues.img} alt={eachGif.gifValues.alt} />
                                     </figure>
-                                    <p>Emotion:{eachGif.gifValues.emotion}</p>
+                                    <p className="emotionText">{eachGif.gifValues.emotion}</p>
                                     
                                 </div>
                                 
