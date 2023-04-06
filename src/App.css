@@ -21,8 +21,8 @@ li {
 
 ul {
     list-style-type: none;
-    padding: 0;
-    margin: 0;
+    /* padding: 0;
+    margin: 0; */
 }
 /* End of GLOBAL */
 
@@ -91,7 +91,6 @@ form label {
     cursor:pointer;
     
 }
-
 form input {
 	margin:15px 0;
 	padding:15px 10px;
@@ -100,9 +99,6 @@ form input {
 	border:1px solid #bbb;
 	border-radius:20px;
 	display:inline-block;
-	-webkit-box-sizing:border-box;
-	   -moz-box-sizing:border-box;
-	        box-sizing:border-box;
     -webkit-transition:0.2s ease all;
 	   -moz-transition:0.2s ease all;
 	    -ms-transition:0.2s ease all;
@@ -125,8 +121,8 @@ button {
     background-color: white;
 }
 .returnButton{
-    padding: 0.5% 0.5% 0.5% 0.5%;
-    background-color: #f4e6e8;
+    padding: 0.7% 2% 0.7% 2%;
+    background-color: white;
 }
 .submitButton{
     border-radius: 8px;
@@ -136,7 +132,7 @@ button {
 }
 button.delete {
     border-radius: 5px;
-    background-color: red;
+    background-color: rgb(0, 0, 0);
 }
 
 button.timeline {
@@ -153,6 +149,11 @@ button.timeline {
     border-radius: 3%;
     box-shadow: 10px 10px 18px 1px #6056f9;
     margin-bottom: 30px;
+    position: relative;
+}
+
+.gifContainer:hover .xButton {
+    opacity: 1
 }
 /* Timeline Styles */
 .timelineFlex {
@@ -161,8 +162,22 @@ button.timeline {
     flex-direction: column;
 }
 
-.emotionText {
-    
+.emotion {
+    color: #6056f9;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.8rem;
+    text-transform: capitalize;
+    margin-bottom: -15px;
+    text-shadow: 2px 2px 2px #ff7600;
+    /*text-shadow: 2px 2px 10px #6056f9;*/
+}
+
+.time {
+    font-size: 1.1rem;
+    color: #ff7600;
+    font-family: 'Lato', sans-serif;
+    /*text-shadow: 2px 2px 10px #ff7600;*/
+    text-shadow: 0 0 2px #ff7600, 0 0 1px black;
 }
 
 .timelineList {
@@ -188,17 +203,38 @@ button.timeline {
     position: relative;
 }
 
+/* right hand text */
 .timelineList li:nth-child(even) .emotionText {
     position: absolute;
-    left: -100px;
+    left: -150px;
     top: 0px;
+    text-align: end;
+}
+/* right hand x button */
+.timelineList li:nth-child(even) .xButton {
+    color: #000;
+    /* display: none; */
 }
 
+
+/* left hand text */
 .timelineList li:nth-child(odd) .emotionText {
     position: absolute;
     top: 0px;
-    right: -100px;
+    right: -150px;
 }
+/* right hand x button */
+.timelineList li:nth-child(odd) .xButton {
+    background-color: black;
+    /* display: none; */
+}
+
+.timelineList li:nth-child(odd) .xButton:hover {
+    display:contents;
+    opacity: 50%;
+}
+
+
 
 .timelineList li:nth-child(even) .xButton {
     align-self: flex-end;
@@ -206,8 +242,16 @@ button.timeline {
 
 
 .xButton {
-    height: 40px;
-    width: 40px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+
+.hidden {
+    display: none;
 }
 
 .apiForm {

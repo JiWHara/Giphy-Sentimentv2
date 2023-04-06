@@ -5,7 +5,8 @@ import '../App.css';
 import { useEffect, useState } from "react";
 
 const Timeline = () => {
-
+    //<button className="xButton" onClick={() => {deleteClickHandler(eachGif.key)}}>❌</button>
+    //const [hover, setHover] = useState(false)
     const  [gifData, setGifData] = useState([])
     // (1) removed second useState
     // const  [gifArray, setGifArray] = useState([])
@@ -46,31 +47,41 @@ const Timeline = () => {
     return (
         <>
         <TimelineHeader />
-        <div className="timelineFlex">
-            <ul className="timelineList" >
-                {gifData ? 
-                    
-                    gifData.map((eachGif) => {
-                        return(
-                        
-                            <li key={eachGif.key}>
-                                <div className="imgTextContainer">
-                                    <figure className="gifContainer">
-                                    <img src={eachGif.gifValues.img} alt={eachGif.gifValues.alt} />
-                                    </figure>
-                                    <p className="emotionText">{eachGif.gifValues.emotion}</p>
-                                    
-                                </div>
+        <section className="timelineSection">
+            <div className="wrapper">
+                <div className="timelineFlex">
+                    <ul className="timelineList" >
+                        {gifData ? 
+                            
+                            gifData.map((eachGif) => {
+                                return(
                                 
-                                {/* 8. made onclick event listener and here insert the clickhandler in an asynch function with it's param set as: eachGif.key ***This is how we target the key of specific firebase db obj! */}
-                                <button className="xButton" onClick={() => {deleteClickHandler(eachGif.key)}}>❌</button>
-                            </li>
-    
-                            )
-                        })
-                        : null}
-            </ul>
-        </div>
+                                    <li key={eachGif.key}>
+                                        <div className="imgTextContainer">
+                                            <figure className="gifContainer">
+                                                <img src={eachGif.gifValues.img} alt={eachGif.gifValues.alt} />
+                                                <button className='xButton' onClick={() => {deleteClickHandler(eachGif.key)}}>❌</button>
+                                            </figure>
+                                            <div className="emotionText">
+                                                <p className="emotion">{eachGif.gifValues.emotion}</p>
+                                                <p className="time">{eachGif.gifValues.time}</p>
+                                            </div>
+
+                                            
+                                            
+                                        </div>
+                                        
+                                        {/* 8. made onclick event listener and here insert the clickhandler in an asynch function with it's param set as: eachGif.key ***This is how we target the key of specific firebase db obj! */}
+                                        
+                                    </li>
+            
+                                    )
+                                })
+                                : null}
+                    </ul>
+                </div>
+            </div>
+        </section>
         </>
     )
     
