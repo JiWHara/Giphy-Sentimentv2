@@ -35,10 +35,6 @@ const Timeline = () => {
         })
     },[] )
 
-    useEffect(() => {
-        console.log(gifData)
-    }, [gifData])
-
     // (6) deleteClickHandler Func
         const deleteClickHandler = (gifKey) => {
     //(7) reference to key in firebase db
@@ -58,10 +54,14 @@ const Timeline = () => {
                         return(
                         
                             <li key={eachGif.key}>
-                                <figure className="gifContainer">
-                                  <img src={eachGif.gifValues.img} alt={eachGif.gifValues.alt} /> 
-                                  
-                                </figure>
+                                <div className="imgTextContainer">
+                                    <figure className="gifContainer">
+                                    <img src={eachGif.gifValues.img} alt={eachGif.gifValues.alt} />
+                                    </figure>
+                                    <p>Emotion:{eachGif.gifValues.emotion}</p>
+                                    
+                                </div>
+                                
                                 {/* 8. made onclick event listener and here insert the clickhandler in an asynch function with it's param set as: eachGif.key ***This is how we target the key of specific firebase db obj! */}
                                 <button className="xButton" onClick={() => {deleteClickHandler(eachGif.key)}}>❌</button>
                                 <p className="emotionText">{eachGif.gifValues.emotion}</p>
