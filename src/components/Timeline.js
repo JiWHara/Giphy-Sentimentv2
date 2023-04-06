@@ -35,6 +35,10 @@ const Timeline = () => {
         })
     },[] )
 
+    useEffect(() => {
+        console.log(gifData)
+    }, [gifData])
+
     // (6) deleteClickHandler Func
         const deleteClickHandler = (gifKey) => {
     //(7) reference to key in firebase db
