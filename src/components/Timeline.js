@@ -64,6 +64,7 @@ const Timeline = () => {
                                 </figure>
                                 {/* 8. made onclick event listener and here insert the clickhandler in an asynch function with it's param set as: eachGif.key ***This is how we target the key of specific firebase db obj! */}
                                 <button className="xButton" onClick={() => {deleteClickHandler(eachGif.key)}}>❌</button>
+                                <p className="emotionText">{eachGif.gifValues.emotion}</p>
                             </li>
     
                             )
