@@ -23,52 +23,56 @@ const DisplayOptions = ({ gifArray, emotion }) => {
     }
 
     return (
-        <ul className='gifList'>
-                {gifArray ?
-                    gifArray.map(gif => {
-                        
-                        const timeElapsed = Date.now();
-                        const currentDay = new Date(timeElapsed)
-                        const gifObj = {
-                            emotion: emotion,
-                            img: gif.images.original.url,
-                            alt: gif.title,
-                            key: gif.id,
-                            time: currentDay.toDateString(),
-                            timeNum: timeElapsed
-                        }
-                        
-                        return (
-                            <div key={gif.id}>
-                                <li className="gifContainer" onClick={() => setShowModal(`${gif.id}`)}>
-                                    <img src={gif.images.original.url} alt={gif.title} />
-                                </li>
-                                <div className={`${ showModal === gif.id ? `modal` : `hidden` }`}>
-                                    <div>
-                                        
-                                        <div className="modalFlex">
-                                            <div className="titleFlex">
-                                                <button onClick={() => setShowModal('')} className="btnClose">X</button>
-                                                <p className="modalText">Are you happy with your selection?</p>
+        <section className="displaySection">
+            <div className="wrapper">
+                <ul className='gifList'>
+                        {gifArray ?
+                            gifArray.map(gif => {
+                                
+                                const timeElapsed = Date.now();
+                                const currentDay = new Date(timeElapsed)
+                                const gifObj = {
+                                    emotion: emotion,
+                                    img: gif.images.original.url,
+                                    alt: gif.title,
+                                    key: gif.id,
+                                    time: currentDay.toDateString(),
+                                    timeNum: timeElapsed
+                                }
+                                
+                                return (
+                                    <div key={gif.id}>
+                                        <li className="gifContainer" onClick={() => setShowModal(`${gif.id}`)}>
+                                            <img src={gif.images.original.url} alt={gif.title} />
+                                        </li>
+                                        <div className={`${ showModal === gif.id ? `modal` : `hidden` }`}>
+                                            <div>
+                                                
+                                                <div className="modalFlex">
+                                                    <div className="titleFlex">
+                                                        <button onClick={() => setShowModal('')} className="btnClose">X</button>
+                                                        <p className="modalText">Are you happy with your selection?</p>
+                                                    </div>
+                                                    
+                                                    <figure className="gifContainer">
+                                                        <img className="modalGif" src={gif.images.original.url} alt={gif.title} />
+                                                    </figure>
+                                                    <button onClick={() => handlePush(gifObj)}>Select</button>
+                                                </div>
+                                                
                                             </div>
-                                            
-                                            <figure className="gifContainer">
-                                                <img className="modalGif" src={gif.images.original.url} alt={gif.title} />
-                                            </figure>
-                                            <button onClick={() => handlePush(gifObj)}>Select</button>
+                                                
                                         </div>
-                                        
+                                        <div onClick={() => setShowModal('')} className={`${ showModal === gif.id ? `overlay` : `hidden` }`}></div>
                                     </div>
-                                        
-                                </div>
-                                <div onClick={() => setShowModal('')} className={`${ showModal === gif.id ? `overlay` : `hidden` }`}></div>
-                            </div>
-                        )
-                    })
-                    :
-                    null
-                }
-        </ul>
+                                )
+                            })
+                            :
+                            null
+                        }
+                </ul>
+            </div>
+        </section>
     )
 
 }

@@ -11,6 +11,21 @@ overflow-x: hidden;
 li {
     list-style: none;
 }
+/* end of setup */
+
+/* GLOBAL styles */
+.wrapper {
+    width: 90%;
+    margin: 0 auto;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+/* End of GLOBAL */
+
 
 /*Header style */
 .header {
@@ -18,7 +33,7 @@ li {
     background-image: url(/src/assets/header.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 2%;
+    padding: 2% 0;
     height: 220px;
 }
 h1, h3{
@@ -26,7 +41,7 @@ h1, h3{
     color: white;
     font-weight: 900;
 }
-
+/* end of Header */
 p {
     font-family: 'Lato', sans-serif;
     font-weight: 700;
@@ -61,30 +76,64 @@ body {
 
 /* Gradient ORANGE to TEAL/BLUE */
 /* background-image: linear-gradient(to right bottom, #ff7600, #ff6332, #ff534e, #f54965, #e54678, #d34886, #be4c91, #a75197, #8c5599, #705796, #58578e, #435582); */
+/* Form Styles */
+form {
+    padding: 30px;
+    width: 20vw;
+    height: 0 auto;
+    overflow: hidden;
+    background: white;
+    border-radius: 10px;
+}
+form label {
+    font-size: 18px;
+    color:black;
+    cursor:pointer;
+    
+}
 
+form input {
+	margin:15px 0;
+	padding:15px 10px;
+	width:100%;
+	outline:none;
+	border:1px solid #bbb;
+	border-radius:20px;
+	display:inline-block;
+	-webkit-box-sizing:border-box;
+	   -moz-box-sizing:border-box;
+	        box-sizing:border-box;
+    -webkit-transition:0.2s ease all;
+	   -moz-transition:0.2s ease all;
+	    -ms-transition:0.2s ease all;
+	     -o-transition:0.2s ease all;
+	        transition:0.2s ease all;
+}
+/* DisplayOptions Styles */
+
+/* End of Display Options */
+
+
+/*Button Styles*/
 button {
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: white;
     font-family: Lato, sans-serif;
 }
 .headerButton{
-    padding: 0.5% 0.5% 0.5% 0.5%;
+    padding: 0.7% 2% 0.7% 2%;
+    background-color: white;
 }
 .returnButton{
     padding: 0.5% 0.5% 0.5% 0.5%;
+    background-color: #f4e6e8;
 }
-.gifContainer {
-    max-height: 300px;
-    width: 300px;
-    overflow: clip;
-    overflow-clip-margin: content-box;
-    border: 1px solid black;
-    border-radius: 3%;
-    box-shadow: 10px 10px 18px 1px #6056f9;
-    margin-bottom: 30px;
+.submitButton{
+    border-radius: 8px;
+    background-color: white;
+    font-family: 'Lato', sans-serif;
+    padding: 0.7% 2% 0.7% 2%;
 }
-
-
 button.delete {
     border-radius: 5px;
     background-color: red;
@@ -95,6 +144,17 @@ button.timeline {
     background-color: white;
 }
 
+.gifContainer {
+    max-height: 300px;
+    width: 300px;
+    overflow: clip;
+    overflow-clip-margin: content-box;
+    border: 1px solid black;
+    border-radius: 3%;
+    box-shadow: 10px 10px 18px 1px #6056f9;
+    margin-bottom: 30px;
+}
+/* Timeline Styles */
 .timelineFlex {
     display: flex;
     align-items: center;
