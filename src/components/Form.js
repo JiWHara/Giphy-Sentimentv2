@@ -45,18 +45,18 @@ const Form = () => {
     return (
       <>
         <Header />
-          <form onSubmit={handleSubmit}>
+          <form className="apiForm" onSubmit={handleSubmit}>
               <label htmlFor="" className='sr-only'>Enter your emotion:</label>
+              
+              <p className="absolute">Write <span className={wordsError ? 'big' : null}>one word</span> about how you're feeling and well get some Gif's for you</p>
               <input onChange={(e) => {
 
                 // create variable to contain number of words using split method
                 const words = e.target.value.split(/\s+/);
                 // variable storing number of words
                 const numWords = words.length;
-                // variable to contain single word
-                const singleWord = 1;
 
-                if(numWords > singleWord){
+                if(numWords > 1){
                     // to cancel event
                     e.preventDefault()
                     // set the error as true
@@ -68,10 +68,10 @@ const Form = () => {
                 }}} 
                 value={searchQuery} 
                 type="text" />
-
+              
               <button>Api call</button>
           </form>
-        {wordsError === true ? <h2>Please enter one word</h2> : null}
+        {/*wordsError === true ? <h2>Please enter one word</h2> : null*/}
           {/* 1d) display error message to user */}
           {apiError === true ? <h2>Sorry, the call to the Giphy API was unsuccessful, please try again!</h2> : null}
 

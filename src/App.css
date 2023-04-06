@@ -19,6 +19,7 @@ li {
     background-size: cover;
     background-repeat: no-repeat;
     padding: 2%;
+    height: 220px;
 }
 h1, h3{
     font-family: 'Josefin Sans', sans-serif;
@@ -98,6 +99,20 @@ button.timeline {
     display: flex;
     columns: 1;
     flex-direction: column;
+}
+
+.apiForm {
+    margin-top: 70px; 
+}
+
+.absolute {
+    position: absolute;
+    top: 230px;
+}
+
+.big {
+    color: red;
+    text-transform: uppercase;
 }
 
 
