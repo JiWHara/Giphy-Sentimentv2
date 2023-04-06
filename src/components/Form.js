@@ -6,7 +6,10 @@ import Header from "./Header.js";
 const Form = () => {
     // initialize useState variables as string/array
     const [searchQuery, setSearchQuery] = useState('');
+
     const [emotion, setEmotion] = useState('')
+
+
     const [gifArray, setGifArray] = useState([]);
     const [apiError, setApiError] = useState(false);
     const [ apiNoResultError, setApiNoResultError ] = useState(false);
