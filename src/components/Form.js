@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import DisplayOptions from "./DisplayOptions";
 import Header from "./Header.js";
@@ -12,16 +12,25 @@ const Form = () => {
 
     const [gifArray, setGifArray] = useState([]);
     const [apiError, setApiError] = useState(false);
+    const [offset, setOffset] = useState()
     const [ apiNoResultError, setApiNoResultError ] = useState(false);
     const [ wordsError, setWordsError ] = useState(false);
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    useEffect(() => {
+        
+        if(offset !== undefined) {
+            handleSubmit()
+        }
+    }, [offset])
+
+
+    
+    const handleSubmit = () => {
         //   Axios Start
         
-        axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_API_KEY}&q=${searchQuery}&limit=10&offset=0&rating=pg&lang=en`)
+        axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_API_KEY}&q=${emotion}&limit=10&offset=${ offset * 10 }&rating=pg&lang=en`)
             .then((response) => {
-
+                
                 if(response.data.data.length === 0){
                     setApiNoResultError(true)
                 }else{
@@ -32,7 +41,12 @@ const Form = () => {
                 setApiError(false)
                 // setGifArray to results from search
                 setGifArray(response.data.data)
-                setEmotion(searchQuery);
+                
+                //set the emotion to the query, but only if the it hasnt been reset already
+                if (searchQuery !== '') {
+                    setEmotion(searchQuery);
+                }
+                
                 // reset user input 
                 setSearchQuery('')
             })
@@ -52,7 +66,11 @@ const Form = () => {
         <Header />
         <section className="formSection">
             <div className="wrapper">
-                <form className="apiForm" onSubmit={handleSubmit}>
+                <button onClick={() => setOffset(offset + 1)}>more Gifs</button>
+                <form className="apiForm" onSubmit={(e) => {
+                                                            e.preventDefault();
+                                                            setOffset(0);
+                                                        }}>
                     <label htmlFor="" className='sr-only'>Enter your emotion:</label>
                     
                     <p className="absolute">Write <span className={wordsError ? 'big' : null}>one word</span> about how you're feeling and well get some Gif's for you</p>
@@ -71,6 +89,7 @@ const Form = () => {
                         }else{
                             // set error as fasle
                             setWordsError(false)
+                            setEmotion(e.target.value)
                             setSearchQuery(e.target.value)
                         }}} 
                         value={searchQuery} 
