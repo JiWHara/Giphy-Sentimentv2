@@ -42,11 +42,6 @@ const Form = () => {
                 // setGifArray to results from search
                 setGifArray(response.data.data)
                 
-                //set the emotion to the query, but only if the it hasnt been reset already
-                if (searchQuery !== '') {
-                    setEmotion(searchQuery);
-                }
-                
                 // reset user input 
                 setSearchQuery('')
             })
@@ -70,6 +65,7 @@ const Form = () => {
                 <form className="apiForm" onSubmit={(e) => {
                                                             e.preventDefault();
                                                             setOffset(0);
+                                                            handleSubmit()
                                                         }}>
                     <label htmlFor="" className='sr-only'>Enter your emotion:</label>
                     
