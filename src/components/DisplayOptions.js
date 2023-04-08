@@ -54,7 +54,7 @@ const DisplayOptions = ({ gifArray, emotion }) => {
                                                         <p className="modalText">Are you happy with your selection?</p>
                                                     </div>
                                                     
-                                                    <figure className="gifContainer">
+                                                    <figure className="displayPageGifContainer">
                                                         <img className="modalGif" src={gif.images.original.url} alt={gif.title} />
                                                     </figure>
                                                     <button onClick={() => handlePush(gifObj)}>Select</button>

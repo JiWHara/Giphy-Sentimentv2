@@ -1,7 +1,9 @@
 const Footer = () => {
     return (
         <section className="footer">
-            <p>Copyright 2023, created at <a href="https://junocollege.com/">Juno College</a> by Jackson Watt-Bowers, Jigme Hara, Kyle Lau and Neal Symons</p>
+            <div className="wrapper">
+                <p>Created at <a className="junoLink" target="_blank" href="https://junocollege.com/" aria-label="Link to Juno College homepage" >Juno College</a> by <a target="_blank" className="teammates" href="" aria-label="Link to Jackson's portfolio">Jackson Watt-Bowers</a>, <a target="_blank" className="teammates" href="" aria-label="Link to Jigme's portfolio">Jigme Hara</a>, <a target="_blank" className="teammates" href="https://kylelau.dev/" aria-label="Link to Kyle's portfolio">Kyle Lau</a> and <a target="_blank" className="teammates" href="" aria-label="Link to Neal's portfolio">Neal Symons</a></p>
+            </div>
         </section>
     )
 }

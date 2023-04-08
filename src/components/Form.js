@@ -52,10 +52,11 @@ const Form = () => {
         <Header />
         <section className="formSection">
             <div className="wrapper">
+                <div className="instructions">
+                    <p className="absolute">Write <span className={wordsError ? 'big' : null}>one word</span> about how you're feeling and we'll get some Gif's for you</p>
+                </div>
                 <form className="apiForm" onSubmit={handleSubmit}>
                     <label htmlFor="" className='sr-only'>Enter your emotion:</label>
-                    
-                    <p className="absolute">Write <span className={wordsError ? 'big' : null}>one word</span> about how you're feeling and well get some Gif's for you</p>
                     <input onChange={(e) => {
 
                         // create variable to contain number of words using split method

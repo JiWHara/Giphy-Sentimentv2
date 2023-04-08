@@ -55,29 +55,25 @@ const Timeline = () => {
                             
                             gifData.map((eachGif) => {
                                 
-                               
                                 
                                 return(
-
-                                    <li key={eachGif.key}>
-                                        <div className="imgTextContainer">
+                                    <li className="indivGif" key={eachGif.key}>
+                                        <div className="imageContainer">
                                             <figure className="gifContainer">
                                                 <img src={eachGif.gifValues.img} alt={eachGif.gifValues.alt} />
                                                 <button className='xButton' onClick={() => {deleteClickHandler(eachGif.key)}}>❌</button>
                                             </figure>
+                                        </div>
+                                        <div className="sideTextContainer">
                                             <div className= 'emotionText'>
                                                 <p className="emotion">{eachGif.gifValues.emotion}</p>
                                                 <p className="time">{eachGif.gifValues.time}</p>
                                             </div>
-
-                                            
-                                            
+                                            <span className="circle"></span>
                                         </div>
-                                        
                                         {/* 8. made onclick event listener and here insert the clickhandler in an asynch function with it's param set as: eachGif.key ***This is how we target the key of specific firebase db obj! */}
-                                        
                                     </li>
-            
+                                    
                                     )
                                 })
                                 : null}
