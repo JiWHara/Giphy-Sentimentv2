@@ -72,7 +72,7 @@ const Timeline = () => {
                                             </div>
                                             <span className="circle"></span>
                                         </div>
-
+                                    {/* modal start*/}
                                             <div className={`${ showModal === eachGif.gifValues.key ? `modal` : `hidden` }`}>
                                                 <div>
                                                 
@@ -91,11 +91,7 @@ const Timeline = () => {
                                                 
                                             </div>
                                             <div onClick={() => setShowModal('')} className={`${ showModal === eachGif.gifValues.key ? `overlay` : `hidden` }`}></div>
-                                                <div className= 'emotionText'>
-                                                    <p className="emotion">{eachGif.gifValues.emotion}</p>
-                                                    <p className="time">{eachGif.gifValues.time}</p>
-                                                </div>
-                                            </div>
+                                    {/* nodal end */}
                                         
                                         {/* 8. made onclick event listener and here insert the clickhandler in an asynch function with it's param set as: eachGif.key ***This is how we target the key of specific firebase db obj! */}
                                     </li>

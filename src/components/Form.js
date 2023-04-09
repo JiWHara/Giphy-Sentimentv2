@@ -64,7 +64,6 @@ const Form = () => {
                 <div className="instructions">
                     <p className="absolute">Write <span className={wordsError ? 'big' : null}>one word</span> about how you're feeling and we'll get some Gif's for you</p>
                 </div>
-                <form className="apiForm" onSubmit={handleSubmit}>
                 <button onClick={() => setOffset(offset + 1)}>more Gifs</button>
                 <form className="apiForm" onSubmit={(e) => {
                                                             e.preventDefault();
