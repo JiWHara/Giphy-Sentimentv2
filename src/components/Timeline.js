@@ -9,6 +9,7 @@ const Timeline = () => {
     //const [hover, setHover] = useState(false)
     const  [gifData, setGifData] = useState([])
     // (1) removed second useState
+    const [showModal, setShowModal] = useState('')
    
 
     const database = getDatabase(firebaseInfo)
@@ -55,7 +56,7 @@ const Timeline = () => {
                             
                             gifData.map((eachGif) => {
                                 
-                               
+                               console.log(eachGif)
                                 
                                 return(
 
@@ -63,16 +64,31 @@ const Timeline = () => {
                                         <div className="imgTextContainer">
                                             <figure className="gifContainer">
                                                 <img src={eachGif.gifValues.img} alt={eachGif.gifValues.alt} />
-                                                <button className='xButton' onClick={() => {deleteClickHandler(eachGif.key)}}>❌</button>
+                                                <button className='xButton' onClick={() => {setShowModal(`${eachGif.gifValues.key}`)}}>❌</button>
                                             </figure>
-                                            <div className= 'emotionText'>
-                                                <p className="emotion">{eachGif.gifValues.emotion}</p>
-                                                <p className="time">{eachGif.gifValues.time}</p>
+                                            <div className={`${ showModal === eachGif.gifValues.key ? `modal` : `hidden` }`}>
+                                                <div>
+                                                
+                                                    <div className="modalFlex">
+                                                        <div className="titleFlex">
+                                                            <button onClick={() => setShowModal('')} className="btnClose">X</button>
+                                                            <p className="modalText">Are you sure you want to delete this gif?</p>
+                                                        </div>
+                                                        <button onClick={() => {
+                                                                                setShowModal('');
+                                                                                deleteClickHandler(eachGif.key)
+                                                                                }}>Yes</button>
+                                                    </div>
+                                                
+                                                </div>
+                                                
                                             </div>
-
-                                            
-                                            
-                                        </div>
+                                            <div onClick={() => setShowModal('')} className={`${ showModal === eachGif.gifValues.key ? `overlay` : `hidden` }`}></div>
+                                                <div className= 'emotionText'>
+                                                    <p className="emotion">{eachGif.gifValues.emotion}</p>
+                                                    <p className="time">{eachGif.gifValues.time}</p>
+                                                </div>
+                                            </div>
                                         
                                         {/* 8. made onclick event listener and here insert the clickhandler in an asynch function with it's param set as: eachGif.key ***This is how we target the key of specific firebase db obj! */}
                                         
