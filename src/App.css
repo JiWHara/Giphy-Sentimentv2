@@ -117,6 +117,9 @@ body {
         outline-color: #ff7600;
         margin: 50px auto;
         padding: 0 10% 50px 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 }
 
 .instructions {
@@ -145,6 +148,12 @@ form input {
     justify-content: center;
     gap: 12px;
 }
+
+.buttonWrapper button {
+    background-color: white;
+    font-family: 'Lato', sans-serif;
+    padding: 10px 20px;
+}
 /* DisplayOptions Styles */
 .displaySection {
     margin-top: 50px;
@@ -163,11 +172,9 @@ form input {
     background-color: white;
     border-radius: 25px;
     border-style: solid;
-    border-width: 50%;
     border-color: #6056f9;
     outline-style: solid;
     outline-color: #ff7600;
-    outline-width: 50%;
     padding: 40px 25px;
 }
 
@@ -204,13 +211,7 @@ button {
     padding: 10px 25px;
     background-color: white;
 }
-.submitButton{
-    border-radius: 8px;
-    background-color: white;
-    font-family: 'Lato', sans-serif;
-    padding: 10px 40px;
-    border-style:solid;
-}
+
 button.delete {
     border-radius: 5px;
     background-color: rgb(0, 0, 0);
