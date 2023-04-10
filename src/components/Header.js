@@ -4,7 +4,7 @@ const Header = () => {
     <>
       <header>
         <section className="header">
-          <div className="wrapper">
+          <div className="wrapper headerWrapper">
             <h1>Giphy Sentiment</h1>
             <h3>Express Yourself with Gifs: The Ultimate Emotion Timeline</h3>
             <Link to="/timeline">
