@@ -52,29 +52,33 @@ a {
 
 
 /*Header style */
-.header {
+header {
     font-family: 'Josefin Sans', serif;
     background-image: url(/src/assets/header.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 20px 0;
+    padding: 40px 0;
+}
 
+header .wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
 }
-.headerWrapper {
-    position:relative;
-}
-.headerButton{
-    position:absolute;
-    top: 0;
-    right: 0;
-}
+
 header h1, 
-header h3{
+header h2{
     font-family: 'Josefin Sans', sans-serif;
     color: white;
     font-weight: 900;
     margin-top: 0;
 }
+
+header h2 {
+    font-size: 1.2rem;
+}
+
+
 /* end of Header */
 p {
     font-family: 'Lato', sans-serif;
@@ -105,29 +109,16 @@ body {
     align-items: center;
 }
 .formWrapper {
-    background-color: white;
-    border-radius: 25px;
-    border-style: solid;
-    border-width: 50%;
-    border-color: #6056f9;
-    outline-style: solid;
-    outline-color: #ff7600;
-    outline-width: 50%;
-    padding-left: 10vw;
-    padding-right: 10vw;
+        background-color: white;
+        border-radius: 25px;
+        border-style: solid;
+        border-color: #6056f9;
+        outline-style: solid;
+        outline-color: #ff7600;
+        margin: 50px auto;
+        padding: 0 10% 50px 10%;
 }
-.displayWrapper {
-    background-color: white;
-    border-radius: 25px;
-    border-style: solid;
-    border-width: 50%;
-    border-color: #6056f9;
-    outline-style: solid;
-    outline-color: #ff7600;
-    outline-width: 50%;
-    padding-left: 10vw;
-    padding-right: 10vw;
-}
+
 .instructions {
     margin-top: 30px;
     display: flex;
@@ -152,23 +143,32 @@ form input {
 .buttonWrapper {
     display: flex;
     justify-content: center;
-    gap: 1vw;
+    gap: 12px;
 }
 /* DisplayOptions Styles */
 .displaySection {
     margin-top: 50px;
-}
-
-.displaySection .wrapper {
     width: 100%;
 }
+
 
 .gifList {
     width: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    min-height: 300px;
     gap: 30px;
+    margin-bottom: 75px;
+    background-color: white;
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 50%;
+    border-color: #6056f9;
+    outline-style: solid;
+    outline-color: #ff7600;
+    outline-width: 50%;
+    padding: 40px 25px;
 }
 
 .displayPageGifContainer {
@@ -182,6 +182,11 @@ form input {
     margin-bottom: 30px;
     position: relative;
 }
+
+.emptyDisplayText {
+    font-size: 1.1rem;
+    text-align: center;
+}
 /* End of Display Options */
 
 
@@ -192,21 +197,18 @@ button {
     font-family: Lato, sans-serif;
 }
 .headerButton{
-    padding: 0.7% 2% 0.7% 2%;
+    padding: 10px 20px;
     background-color: white;
 }
 .returnButton{
-    padding: 0.7% 2% 0.7% 2%;
+    padding: 10px 25px;
     background-color: white;
-    position:absolute;
-    top: 0;
-    right: 0;
 }
 .submitButton{
     border-radius: 8px;
     background-color: white;
     font-family: 'Lato', sans-serif;
-    padding: 1.4% 8% 1.4% 8%;
+    padding: 10px 40px;
     border-style:solid;
 }
 button.delete {
@@ -389,6 +391,16 @@ button.timeline {
 }
 /* end of timeline styles */
 /* error text */
+.errorSection {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.errorSection p {
+    font-size: 1.2rem;
+}
+
+
 .searchErrorText {
     font-size: 1.1rem;
     text-align: center;
@@ -422,6 +434,7 @@ button.timeline {
     text-transform: uppercase;
 }
 .absolute {
+    font-size: 1.2rem;
     color: #ff7600;
     font-family: 'Josefin Sans', sans-serif;
 }
@@ -553,6 +566,11 @@ button.timeline {
 
 @media (max-width:530px) {
     /* mobile responsiveness */
+    header .wrapper {
+            flex-direction: column;
+            gap: 20px;
+        }
+
     .mobilePointer {
         width: 0;
         height: 0;
@@ -583,6 +601,7 @@ button.timeline {
     display: flex;
     justify-content: center;
     width: 80%;
+    max-width: 310px;
 }
 /* Line */
     .indivGif:nth-child(odd) .imageContainer,
@@ -628,5 +647,12 @@ button.timeline {
     /* mobile end */
     .timelineList {
         width: 100%;
+    }
+}
+
+@media (max-width:390px) {
+    header .wrapper {
+        flex-direction: column;
+        gap: 20px;
     }
 }

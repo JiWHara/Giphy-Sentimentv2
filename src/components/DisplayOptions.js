@@ -24,8 +24,9 @@ const DisplayOptions = ({ gifArray, emotion }) => {
 
     return (
         <section className="displaySection">
-            <div className="wrapper displayWrapper">
+            {/* <div className="wrapper"> */}
                 <ul className='gifList'>
+                    {gifArray.length === 0 ? <p className="emptyDisplayText">Start by searching for Gifs using the form above!</p> : null}
                         {gifArray ?
                             gifArray.map(gif => {
                                 
@@ -71,7 +72,7 @@ const DisplayOptions = ({ gifArray, emotion }) => {
                             null
                         }
                 </ul>
-            </div>
+            {/* </div> */}
         </section>
     )
 
