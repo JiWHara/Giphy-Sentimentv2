@@ -41,10 +41,10 @@ const DisplayOptions = ({ gifArray, emotion }) => {
                                 }
                                 
                                 return (
-                                    <div key={gif.id}>
-                                        <li className="gifContainer" onClick={() => setShowModal(`${gif.id}`)}>
+                                    <li key={gif.id}>
+                                        <div className="gifContainer" onClick={() => setShowModal(`${gif.id}`)}>
                                             <img src={gif.images.original.url} alt={gif.title} />
-                                        </li>
+                                        </div>
                                         <div className={`${ showModal === gif.id ? `modal` : `hidden` }`}>
                                             <div>
                                                 
@@ -64,7 +64,7 @@ const DisplayOptions = ({ gifArray, emotion }) => {
                                                 
                                         </div>
                                         <div onClick={() => setShowModal('')} className={`${ showModal === gif.id ? `overlay` : `hidden` }`}></div>
-                                    </div>
+                                    </li>
                                 )
                             })
                             :

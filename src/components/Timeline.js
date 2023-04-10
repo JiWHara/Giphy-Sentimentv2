@@ -52,6 +52,7 @@ const Timeline = () => {
             <div className="wrapper">
                 <div className="timelineFlex">
                     <ul className="timelineList" >
+                        {gifData.length === 0 ? <p className="emptyTimelineText">The timeline is <span className="emptyTextStyle">empty!</span>  <br></br> Return to the homepage to search for Gifs and add them to the timeline!</p> : null}
                         {gifData ? 
                             
                             gifData.map((eachGif) => {
@@ -60,7 +61,7 @@ const Timeline = () => {
                                 return(
                                     <li className="indivGif" key={eachGif.key}>
                                         <div className="imageContainer">
-                                            <figure className="gifContainer">
+                                            <figure className="timelineGifContainer">
                                                 <img src={eachGif.gifValues.img} alt={eachGif.gifValues.alt} />
                                                 <button className='xButton' onClick={() => {setShowModal(`${eachGif.gifValues.key}`)}}>❌</button>
                                             </figure>
@@ -72,6 +73,7 @@ const Timeline = () => {
                                             </div>
                                             <span className="circle"></span>
                                         </div>
+                                        <span className="mobilePointer"></span>
                                     {/* modal start*/}
                                             <div className={`${ showModal === eachGif.gifValues.key ? `modal` : `hidden` }`}>
                                                 <div>
@@ -91,7 +93,7 @@ const Timeline = () => {
                                                 
                                             </div>
                                             <div onClick={() => setShowModal('')} className={`${ showModal === eachGif.gifValues.key ? `overlay` : `hidden` }`}></div>
-                                    {/* nodal end */}
+                                    {/* modal end */}
                                         
                                         {/* 8. made onclick event listener and here insert the clickhandler in an asynch function with it's param set as: eachGif.key ***This is how we target the key of specific firebase db obj! */}
                                     </li>
