@@ -1,19 +1,17 @@
 import { Link } from "react-router-dom";
 const Header = () => {
   return (
-    <>
       <header>
-        <section className="header">
-          <div className="wrapper headerWrapper">
-            <h1>Giphy Sentiment</h1>
-            <h3>Express Yourself with Gifs: The Ultimate Emotion Timeline</h3>
+          <div className="wrapper">
+            <div className="titleContainer">
+              <h1>Giphy Sentiment</h1>
+              <h2>Express Yourself with Gifs: The Ultimate Emotion Timeline</h2>
+            </div>
             <Link to="/timeline">
               <button type="button" className="headerButton">Timeline</button>
             </Link>
           </div>
-        </section>
       </header>
-    </>
   );
 };
 

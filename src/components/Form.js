@@ -21,8 +21,8 @@ const Form = () => {
         if(offset !== undefined) {
             handleSubmit()
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [offset])
-
 
     
     const handleSubmit = () => {

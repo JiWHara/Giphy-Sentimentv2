@@ -1,7 +1,6 @@
 import firebaseInfo from "../firebase.js";
 import { getDatabase, ref, push } from "firebase/database";
-import axios from 'axios';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // DisplayOptions function
@@ -24,8 +23,9 @@ const DisplayOptions = ({ gifArray, emotion }) => {
 
     return (
         <section className="displaySection">
-            <div className="wrapper displayWrapper">
+            {/* <div className="wrapper"> */}
                 <ul className='gifList'>
+                    {gifArray.length === 0 ? <p className="emptyDisplayText">Start by searching for Gifs using the form above!</p> : null}
                         {gifArray ?
                             gifArray.map(gif => {
                                 
@@ -71,7 +71,7 @@ const DisplayOptions = ({ gifArray, emotion }) => {
                             null
                         }
                 </ul>
-            </div>
+            {/* </div> */}
         </section>
     )
 
