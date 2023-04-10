@@ -1,7 +1,6 @@
 import firebaseInfo from "../firebase.js";
 import { getDatabase, ref, push } from "firebase/database";
-import axios from 'axios';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // DisplayOptions function

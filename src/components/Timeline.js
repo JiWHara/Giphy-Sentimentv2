@@ -35,7 +35,8 @@ const Timeline = () => {
             setGifData(gifArray)
 
         })
-    },[] )
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
 
     // (6) deleteClickHandler Func
         const deleteClickHandler = (gifKey) => {
