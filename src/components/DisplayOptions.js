@@ -24,7 +24,7 @@ const DisplayOptions = ({ gifArray, emotion }) => {
 
     return (
         <section className="displaySection">
-            <div className="wrapper">
+            <div className="wrapper displayWrapper">
                 <ul className='gifList'>
                         {gifArray ?
                             gifArray.map(gif => {

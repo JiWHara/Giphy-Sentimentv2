@@ -61,10 +61,11 @@ const Form = () => {
         <Header />
         <section className="formSection">
             <div className="wrapper">
+                <div className="formWrapper">
                 <div className="instructions">
-                    <p className="absolute">Write <span className={wordsError ? 'big' : null}>one word</span> about how you're feeling and we'll get some Gif's for you</p>
+                    <p className="absolute">Write <span className={wordsError ? 'big' : null}>one word</span> about how you're feeling and we'll get some Gifs for you!</p>
                 </div>
-                <button onClick={() => setOffset(offset + 1)}>more Gifs</button>
+                
                 <form className="apiForm" onSubmit={(e) => {
                                                             e.preventDefault();
                                                             setOffset(0);
@@ -92,8 +93,10 @@ const Form = () => {
                         value={searchQuery} 
                         type="text"
                         />
-                    
+                    <div className="buttonWrapper">
                     <button className='submitButton'>Submit</button>
+                    <button className='submitButton' onClick={() => setOffset(offset + 1)}>more Gifs</button>
+                    </div>
                 </form>
                 {/*wordsError === true ? <h2>Please enter one word</h2> : null*/}
                 {/* 1d) display error message to user */}
@@ -101,7 +104,10 @@ const Form = () => {
 
                 {apiNoResultError === true ? <p className="searchErrorText">Your search yielded <span className="errorText">no results</span>, please try again!</p> : null }
 
+                    </div>
+                
                 <DisplayOptions gifArray={gifArray} emotion={emotion}/>
+                
             </div>
         </section>
       </>
