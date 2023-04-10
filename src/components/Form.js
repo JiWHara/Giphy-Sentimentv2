@@ -8,13 +8,13 @@ const Form = () => {
     const [searchQuery, setSearchQuery] = useState('');
 
     const [emotion, setEmotion] = useState('')
-
+    const [loadingState, setLoadingState] = useState(false)
 
     const [gifArray, setGifArray] = useState([]);
     const [apiError, setApiError] = useState(false);
     const [offset, setOffset] = useState(0)
-    const [ apiNoResultError, setApiNoResultError ] = useState(false);
-    const [ wordsError, setWordsError ] = useState(false);
+    const [apiNoResultError, setApiNoResultError] = useState(false);
+    const [wordsError, setWordsError] = useState(false);
 
     useEffect(() => {
         
@@ -27,7 +27,7 @@ const Form = () => {
     
     const handleSubmit = () => {
         //   Axios Start
-        
+        setLoadingState(true)
         axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_API_KEY}&q=${emotion}&limit=10&offset=${ offset * 10 }&rating=pg&lang=en`)
             .then((response) => {
                 if(response.data.data.length === 0){
@@ -43,6 +43,8 @@ const Form = () => {
                 
                 // reset user input 
                 setSearchQuery('')
+
+                setLoadingState(false)
             })
             .catch((error) => {
                 //1a) set apiError to be true
@@ -52,6 +54,7 @@ const Form = () => {
                 // reset user input 
                 setSearchQuery('')
             })
+            
         // Axios End
     }
 
@@ -100,7 +103,7 @@ const Form = () => {
                 {/*wordsError === true ? <h2>Please enter one word</h2> : null*/}
                 {/* 1d) display error message to user */}
                 {apiError === true ? <p className="searchErrorText" >Sorry, the call to the Giphy API was unsuccessful, please try again!</p> : null}
-
+                {loadingState === true && gifArray.length !== 0 ? <p>Loading GIFs</p> : null}
                 {apiNoResultError === true ? <p className="searchErrorText">Your search yielded <span className="errorText">no results</span>, please try again!</p> : null }
 
                     </div>
