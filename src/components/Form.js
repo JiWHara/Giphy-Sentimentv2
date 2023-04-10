@@ -100,9 +100,10 @@ const Form = () => {
                 </form>
                 {/*wordsError === true ? <h2>Please enter one word</h2> : null*/}
                 {/* 1d) display error message to user */}
-                {apiError === true ? <h2>Sorry, the call to the Giphy API was unsuccessful, please try again!</h2> : null}
+                {apiError === true ? <p className="searchErrorText" >Sorry, the call to the Giphy API was unsuccessful, please try again!</p> : null}
 
-                {apiNoResultError === true ? <h2>Your search yielded no results! Please try again!</h2> : null }
+                {apiNoResultError === true ? <p className="searchErrorText">Your search yielded <span className="errorText">no results</span>, please try again!</p> : null }
+
                     </div>
                 
                 <DisplayOptions gifArray={gifArray} emotion={emotion}/>
