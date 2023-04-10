@@ -47,21 +47,17 @@ const DisplayOptions = ({ gifArray, emotion }) => {
                                         </div>
                                         <div className={`${ showModal === gif.id ? `modal` : `hidden` }`}>
                                             <div>
-                                                
                                                 <div className="modalFlex">
                                                     <div className="titleFlex">
                                                         <button onClick={() => setShowModal('')} className="btnClose">X</button>
                                                         <p className="modalText">Are you happy with your selection?</p>
                                                     </div>
-                                                    
                                                     <figure className="displayPageGifContainer">
                                                         <img className="modalGif" src={gif.images.original.url} alt={gif.title} />
                                                     </figure>
                                                     <button onClick={() => handlePush(gifObj)}>Select</button>
                                                 </div>
-                                                
                                             </div>
-                                                
                                         </div>
                                         <div onClick={() => setShowModal('')} className={`${ showModal === gif.id ? `overlay` : `hidden` }`}></div>
                                     </li>
