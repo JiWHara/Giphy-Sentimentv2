@@ -12,13 +12,13 @@ const Form = () => {
 
     const [gifArray, setGifArray] = useState([]);
     const [apiError, setApiError] = useState(false);
-    const [offset, setOffset] = useState()
+    const [offset, setOffset] = useState(0)
     const [ apiNoResultError, setApiNoResultError ] = useState(false);
     const [ wordsError, setWordsError ] = useState(false);
 
     useEffect(() => {
         
-        if(offset !== undefined) {
+        if(gifArray.length !== 0) {
             handleSubmit()
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -30,7 +30,6 @@ const Form = () => {
         
         axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_API_KEY}&q=${emotion}&limit=10&offset=${ offset * 10 }&rating=pg&lang=en`)
             .then((response) => {
-                
                 if(response.data.data.length === 0){
                     setApiNoResultError(true)
                 }else{
@@ -68,7 +67,7 @@ const Form = () => {
                 
                 <form className="apiForm" onSubmit={(e) => {
                                                             e.preventDefault();
-                                                            setOffset(0);
+                                                            
                                                             handleSubmit()
                                                         }}>
                     <label htmlFor="" className='sr-only'>Enter your emotion:</label>
@@ -95,7 +94,7 @@ const Form = () => {
                         />
                     <div className="buttonWrapper">
                     <button className='submitButton'>Submit</button>
-                    <button className='submitButton' onClick={() => setOffset(offset + 1)}>more Gifs</button>
+                    <button  onClick={() => setOffset(offset + 1)}>more Gifs</button>
                     </div>
                 </form>
                 {/*wordsError === true ? <h2>Please enter one word</h2> : null*/}
