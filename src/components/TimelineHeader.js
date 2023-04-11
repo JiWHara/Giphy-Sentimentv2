@@ -4,7 +4,7 @@ const TimelineHeader = () => {
       <header>
           <div className="wrapper">
             <div className="titleContainer">
-              <h1>Giphy Sentiment</h1>
+              <Link to={'/'}><h1>Giphy Sentiment</h1></Link>
               <h2>Timeline</h2>
             </div>
             <Link to="/">
