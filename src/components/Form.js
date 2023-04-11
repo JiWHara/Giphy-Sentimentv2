@@ -81,7 +81,7 @@ const Form = () => {
                         // variable storing number of words
                         const numWords = words.length;
 
-                        if(numWords > 1 || !words.includes(!/^([^0-9]*)$/)){
+                        if(numWords > 1 || words.includes(!/^([^0-9]*)$/)){
                             // to cancel event
                             e.preventDefault()
                             // set the error as true
