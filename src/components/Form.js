@@ -81,23 +81,27 @@ const Form = () => {
                         // variable storing number of words
                         const numWords = words.length;
 
-                        if(numWords > 1){
+                        if(numWords > 1 || !words.includes(!/^([^0-9]*)$/)){
                             // to cancel event
                             e.preventDefault()
                             // set the error as true
                             setWordsError(true)
                         }else{
-                            // set error as fasle
+                            // set error as false
                             setWordsError(false)
                             setEmotion(e.target.value)
                             setSearchQuery(e.target.value)
-                        }}} 
+                        }                    
+                    
+                    
+                    }} 
+                        
                         value={searchQuery} 
                         type="text"
                         />
                     <div className="buttonWrapper">
                     <button className='submitButton'>Submit</button>
-                    <button  onClick={() => setOffset(offset + 1)}>more Gifs</button>
+                    <button  onClick={() => setOffset(offset + 1)}>More {emotion} Gifs</button>
                     </div>
                 </form>
                 {/*wordsError === true ? <h2>Please enter one word</h2> : null*/}

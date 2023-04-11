@@ -24,6 +24,10 @@ ul {
     margin: 0;
 }
 
+.gifContainer {
+    cursor: pointer;
+}
+
 button:hover {
     cursor: pointer;
 }
@@ -153,6 +157,15 @@ form input {
     background-color: white;
     font-family: 'Lato', sans-serif;
     padding: 10px 20px;
+    inline-size: 125px;
+    overflow-wrap: break-word;
+}
+
+.buttonWrapper button:focus,
+.buttonWrapper button:hover {
+    background-color: #6056f9;
+    color: #f4e6e8;
+    transition:150s;
 }
 /* DisplayOptions Styles */
 .displaySection {
@@ -651,9 +664,14 @@ button.timeline {
     }
 }
 
+
 @media (max-width:390px) {
     header .wrapper {
         flex-direction: column;
         gap: 20px;
     }
+    .formWrapper {
+        max-width: 275px;
+    }
 }
+
