@@ -7,8 +7,9 @@ const Header = () => {
               <h1>Giphy Sentiment</h1>
               <h2>Express Yourself with Gifs: The Ultimate Emotion Timeline</h2>
             </div>
-            <Link to="/timeline">
-              <button type="button" className="headerButton">Timeline</button>
+            <Link to="/timeline" className="headerButton">
+              Timeline
+              {/* <button type="button" className="headerButton">Timeline</button> */}
             </Link>
           </div>
       </header>

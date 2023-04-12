@@ -31,6 +31,7 @@ const Timeline = () => {
                 // (4)pushing each of the objects into the empty gif array
                 gifArray.push({key: key, gifValues: firebaseGifData[key]})
             }
+            gifArray.reverse()
             // (5) saving gifArray to state:
             setGifData(gifArray)
 
@@ -58,13 +59,16 @@ const Timeline = () => {
                             
                             gifData.map((eachGif) => {
                                 
-                                
                                 return(
                                     <li className="indivGif" key={eachGif.key}>
                                         <div className="imageContainer">
                                             <figure className="timelineGifContainer">
                                                 <img src={eachGif.gifValues.img} alt={eachGif.gifValues.alt} />
-                                                <button className='xButton' onClick={() => {setShowModal(`${eachGif.gifValues.key}`)}}>❌</button>
+                                                <button 
+                                                    className='xButton' 
+                                                    onKeyDown={ event => {if (event.key === 'Enter') setShowModal(`${eachGif.gifValues.key}`)}} 
+                                                    onClick={() => {setShowModal(`${eachGif.gifValues.key}`)}}>❌
+                                                </button>
                                             </figure>
                                         </div>
                                         <div className="sideTextContainer">

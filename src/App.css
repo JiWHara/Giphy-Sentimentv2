@@ -137,7 +137,6 @@ form input {
 	margin:15px 0;
 	padding:15px 10px;
 	width:100%;
-	outline:none;
 	border:1px solid #bbb;
 	border-radius:20px;
 	display:inline-block;
@@ -165,7 +164,8 @@ form input {
 .buttonWrapper button:hover {
     background-color: #6056f9;
     color: #f4e6e8;
-    transition:150s;
+    transition: 200ms;
+    border: 2px solid black;
 }
 /* DisplayOptions Styles */
 .displaySection {
@@ -217,22 +217,26 @@ button {
     font-family: Lato, sans-serif;
 }
 .headerButton{
-    padding: 10px 20px;
+    padding: 12px 20px;
     background-color: white;
+    align-self: flex-start;
+    border-radius: 0.4rem;
+    border: 2px solid black;
 }
 .returnButton{
-    padding: 10px 25px;
+    padding: 12px 20px;
     background-color: white;
+    align-self: flex-start;
+    border-radius: 0.4rem;
+    border: 2px solid black;
 }
 
-button.delete {
-    border-radius: 5px;
-    background-color: rgb(0, 0, 0);
-}
-
-button.timeline {
-    border-radius: 5px;
-    background-color: white;
+.headerButton:focus,
+.headerButton:hover,
+.returnButton:hover,
+.returnButton:focus {
+    background-color: #ffad66;
+    transition: 200ms;
 }
 
 .gifContainer {
@@ -249,7 +253,8 @@ button.timeline {
     position: relative;
 }
 
-.gifContainer:hover .xButton {
+.gifContainer:hover .xButton,
+.gifContainer:focus .xButton {
     opacity: 1
 }
 /* Timeline Styles */
@@ -264,8 +269,8 @@ button.timeline {
     margin-right: 0;
     max-height: 300px;
     width: 300px;
-    overflow: clip;
-    overflow-clip-margin: content-box;
+    /* overflow: clip; */
+    /* overflow-clip-margin: content-box; */
     border: 1px solid black;
     border-radius: 3%;
     box-shadow: 10px 10px 18px 1px #6056f9;
@@ -273,7 +278,8 @@ button.timeline {
     position: relative;
 }
 
-.timelineGifContainer:hover .xButton {
+.timelineGifContainer:hover .xButton,
+.timelineGifContainer .xButton:focus {
     opacity: 1;
 }
 
@@ -299,7 +305,7 @@ button.timeline {
 .timelineList {
     display: flex;
     columns: 1;
-    flex-direction: column-reverse;
+    flex-direction: column;
     width: 80%;
     max-width: 850px;
 }

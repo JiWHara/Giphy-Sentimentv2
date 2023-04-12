@@ -13,8 +13,6 @@ const DisplayOptions = ({ gifArray, emotion }) => {
     // reference to db
     const dbRef = ref(database)
 
-
-
     const handlePush = (gifObj) => {
         push(dbRef, gifObj);
         setShowModal('');
