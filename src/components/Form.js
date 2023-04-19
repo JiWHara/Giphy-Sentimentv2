@@ -73,7 +73,7 @@ const Form = () => {
                                                             
                                                             handleSubmit()
                                                         }}>
-                    <label htmlFor="" className='sr-only'>Enter your emotion:</label>
+                    <label htmlFor="userEmoInput" className='sr-only'>Enter your emotion:</label>
                     <input onChange={(e) => {
 
                         // create variable to contain number of words using split method
@@ -95,7 +95,7 @@ const Form = () => {
                     
                     
                     }} 
-                        
+                        id="userEmoInput"
                         value={searchQuery} 
                         type="text"
                         />
